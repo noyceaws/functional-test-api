@@ -3,10 +3,13 @@
 A simple Flask REST API for managing stock trades - perfect for learning functional testing!
 
 > 📝 **Exercise:** Ready to write your own tests? Check out the [Functional Test Exercise](tests/functional/EXERCISE.md)!
+
 ## Prerequisites
 
 - Python 3.7 or higher
 - pip (Python package installer)
+
+See the [Installation Guide](INSTALLATION.md) for detailed instructions on installing Python and pip.
 
 ## Installation
 
@@ -21,6 +24,14 @@ python app.py
 ```
 
 The API runs at `http://localhost:5000`
+
+## Postman Collection
+
+Import `stock-trading-api.postman_collection.json` into [Postman](https://www.postman.com/downloads/) to explore the API endpoints.
+
+The collection includes two variables pre-configured:
+- `base_url` - set to `http://localhost:5000`
+- `api_key` - set to `test-key-123`
 
 ## Authentication
 

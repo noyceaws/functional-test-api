@@ -1,0 +1,235 @@
+{
+  "info": {
+    "name": "Stock Trading API",
+    "description": "A simple Flask REST API for managing stock trades",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000"
+    },
+    {
+      "key": "api_key",
+      "value": "test-key-123"
+    }
+  ],
+  "item": [
+    {
+      "name": "Stocks",
+      "item": [
+        {
+          "name": "Get All Stocks",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/stocks",
+            "description": "Returns a list of all available stocks. No authentication required."
+          }
+        },
+        {
+          "name": "Get Stock by Symbol",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/stocks/AAPL",
+            "description": "Returns details for a specific stock. No authentication required."
+          }
+        },
+        {
+          "name": "Get Stock History",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/stocks/AAPL/history",
+            "description": "Returns price history for a specific stock. No authentication required."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Trades",
+      "item": [
+        {
+          "name": "Get All Trades",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/trades",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}"
+              }
+            ],
+            "description": "Returns a list of all trades. Requires authentication."
+          }
+        },
+        {
+          "name": "Get Trade by ID",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/trades/1",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}"
+              }
+            ],
+            "description": "Returns a specific trade by ID. Requires authentication."
+          }
+        },
+        {
+          "name": "Execute Trade",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/trades",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"symbol\": \"AAPL\",\n  \"quantity\": 10,\n  \"action\": \"buy\"\n}"
+            },
+            "description": "Executes a buy or sell trade. Requires authentication."
+          }
+        },
+        {
+          "name": "Update Trade",
+          "request": {
+            "method": "PUT",
+            "url": "{{base_url}}/trades/1",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantity\": 15\n}"
+            },
+            "description": "Updates the quantity of an existing trade. Requires authentication."
+          }
+        },
+        {
+          "name": "Cancel Trade",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/trades/1",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}"
+              }
+            ],
+            "description": "Cancels a trade by ID. Requires authentication."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Portfolio",
+      "item": [
+        {
+          "name": "Get Portfolio",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/portfolio",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}"
+              }
+            ],
+            "description": "Returns all current holdings. Requires authentication."
+          }
+        },
+        {
+          "name": "Get Portfolio Value",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/portfolio/value",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}"
+              }
+            ],
+            "description": "Returns the total value of the portfolio. Requires authentication."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Account",
+      "item": [
+        {
+          "name": "Get Balance",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/account/balance",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}"
+              }
+            ],
+            "description": "Returns the current account balance. Requires authentication."
+          }
+        },
+        {
+          "name": "Deposit Funds",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/account/deposit",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 1000.00\n}"
+            },
+            "description": "Deposits funds into the account. Requires authentication."
+          }
+        },
+        {
+          "name": "Withdraw Funds",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/account/withdraw",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 500.00\n}"
+            },
+            "description": "Withdraws funds from the account. Requires authentication."
+          }
+        }
+      ]
+    }
+  ]
+}
