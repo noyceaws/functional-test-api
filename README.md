@@ -2,6 +2,7 @@
 
 A simple Flask REST API for managing stock trades - perfect for learning functional testing!
 
+> 📝 **Exercise:** Ready to write your own tests? Check out the [Functional Test Exercise](tests/functional/EXERCISE.md)!
 ## Prerequisites
 
 - Python 3.7 or higher
