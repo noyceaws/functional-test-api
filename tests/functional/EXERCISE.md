@@ -14,7 +14,7 @@ GET /stocks/{symbol}/history
 ## Example Request
 
 ```bash
-curl http://localhost:5000/stocks/AAPL/history
+curl http://127.0.0.1:5000/stocks/AAPL/history
 ```
 
 ## Example Response
