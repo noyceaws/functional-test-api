@@ -42,6 +42,22 @@ def get_stock(symbol):
         return jsonify({'error': 'Stock not found'}), 404
     return jsonify(stocks[symbol])
 
+@app.route('/stocks/<symbol>/history', methods=['GET'])
+def get_stock_history(symbol):
+    symbol = symbol.upper()
+    if symbol not in stocks:
+        return jsonify({'error': 'Stock not found'}), 404
+
+    current_price = stocks[symbol]['price']
+    history = [
+        {'date': '2024-01-01', 'price': round(current_price * 0.85, 2)},
+        {'date': '2024-02-01', 'price': round(current_price * 0.90, 2)},
+        {'date': '2024-03-01', 'price': round(current_price * 0.95, 2)},
+        {'date': '2024-04-01', 'price': round(current_price * 0.98, 2)},
+        {'date': '2024-05-01', 'price': round(current_price, 2)},
+    ]
+    return jsonify({'symbol': symbol, 'history': history})
+
 @app.route('/trades', methods=['GET'])
 @require_api_key
 def get_trades():
