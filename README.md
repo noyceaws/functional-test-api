@@ -23,14 +23,14 @@ pip install -r requirements.txt
 python app.py
 ```
 
-The API runs at `http://localhost:5000`
+The API runs at `http://127.0.0.1:5000`
 
 ## Postman Collection
 
 Import `stock-trading-api.postman_collection.json` into [Postman](https://www.postman.com/downloads/) to explore the API endpoints.
 
 The collection includes two variables pre-configured:
-- `base_url` - set to `http://localhost:5000`
+- `base_url` - set to `http://127.0.0.1:5000`
 - `api_key` - set to `test-key-123`
 
 ## Authentication
@@ -139,43 +139,43 @@ Content-Type: application/json
 
 ```bash
 # Get all available stocks (no auth)
-curl http://localhost:5000/stocks
+curl http://127.0.0.1:5000/stocks
 
 # Get specific stock (no auth)
-curl http://localhost:5000/stocks/AAPL
+curl http://127.0.0.1:5000/stocks/AAPL
 
 # Deposit funds (with auth)
-curl -X POST http://localhost:5000/account/deposit \
+curl -X POST http://127.0.0.1:5000/account/deposit \
   -H "Content-Type: application/json" \
   -H "X-API-Key: test-key-123" \
   -d '{"amount":10000}'
 
 # Execute a buy trade (with auth)
-curl -X POST http://localhost:5000/trades \
+curl -X POST http://127.0.0.1:5000/trades \
   -H "Content-Type: application/json" \
   -H "X-API-Key: test-key-123" \
   -d '{"symbol":"AAPL","quantity":10,"action":"buy"}'
 
 # Get all trades (with auth)
-curl -H "X-API-Key: test-key-123" http://localhost:5000/trades
+curl -H "X-API-Key: test-key-123" http://127.0.0.1:5000/trades
 
 # Update a trade (with auth)
-curl -X PUT http://localhost:5000/trades/1 \
+curl -X PUT http://127.0.0.1:5000/trades/1 \
   -H "Content-Type: application/json" \
   -H "X-API-Key: test-key-123" \
   -d '{"quantity":15}'
 
 # Get portfolio (with auth)
-curl -H "X-API-Key: test-key-123" http://localhost:5000/portfolio
+curl -H "X-API-Key: test-key-123" http://127.0.0.1:5000/portfolio
 
 # Get portfolio value (with auth)
-curl -H "X-API-Key: test-key-123" http://localhost:5000/portfolio/value
+curl -H "X-API-Key: test-key-123" http://127.0.0.1:5000/portfolio/value
 
 # Get account balance (with auth)
-curl -H "X-API-Key: test-key-123" http://localhost:5000/account/balance
+curl -H "X-API-Key: test-key-123" http://127.0.0.1:5000/account/balance
 
 # Cancel a trade (with auth)
-curl -X DELETE -H "X-API-Key: test-key-123" http://localhost:5000/trades/1
+curl -X DELETE -H "X-API-Key: test-key-123" http://127.0.0.1:5000/trades/1
 ```
 
 ## Running Tests
