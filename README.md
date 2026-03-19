@@ -33,6 +33,18 @@ The collection includes two variables pre-configured:
 - `base_url` - set to `http://127.0.0.1:5000`
 - `api_key` - set to `test-key-123`
 
+### Importing the Collection
+
+1. Download and install [Postman](https://www.postman.com/downloads/)
+2. Open Postman
+3. Click **Import** in the top left corner
+4. Select **File** and choose `stock-trading-api.postman_collection.json`
+5. Click **Import** to confirm
+
+The collection will appear in your **Collections** sidebar, ready to use.
+
+For more details see the official [Postman import guide](https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/).
+
 ## Authentication
 
 Most endpoints require an API key. Include it in the `X-API-Key` header.
