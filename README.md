@@ -2,6 +2,8 @@
 
 A simple Flask REST API for managing stock trades - perfect for learning functional testing!
 
+> ⚠️ **Disclaimer:** This is an example application for educational purposes only. It is not production-ready. Never hardcode credentials or API keys in real applications - use environment variables or a secrets manager instead.
+
 > 📝 **Exercise:** Ready to write your own tests? Check out the [Functional Test Exercise](tests/functional/EXERCISE.md)!
 
 ## Prerequisites
