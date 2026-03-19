@@ -1,7 +1,7 @@
 import pytest
 import requests
 
-BASE_URL = "http://localhost:5000"
+BASE_URL = "http://127.0.0.1:5000"
 API_KEY = "test-key-123"
 HEADERS = {"X-API-Key": API_KEY, "Content-Type": "application/json"}
 
